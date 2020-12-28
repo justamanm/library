@@ -1,0 +1,22 @@
+{
+"name": "Hello World!",
+"description": "My first Chrome App.",
+"version": "0.1",
+"manifest_version": 2,
+"app": {
+	"background": {
+		"scripts": ["background.js"]
+	}
+  },
+  
+"externally_connectable": {
+        "matches": ["http://127.0.0.1:5000/index"]
+    },
+
+"sockets": {
+    "tcp" : {
+      "connect": "127.0.0.1:12345"
+    }  
+  }
+
+}

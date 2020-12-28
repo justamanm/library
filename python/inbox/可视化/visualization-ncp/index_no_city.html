@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+	<style>
+        div{
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 10%;
+        }
+    </style>
+
+    <script>
+        function changeCity() {
+
+            // 1. 获取用户选择的省份;
+            var choiceProvince = document.getElementById('province').value;
+
+            // 2. 创建一个二维数组， 用来存储省份和城市的对应关系;
+            // 如何创建二维数组？创建了三个数组，因为这里我们只用了三个省份
+            //创建二维数组存储市级数据
+
+			var city = new Array();
+
+			city[1]=new Array('北京');
+			city[2]=new Array('天津');
+			city[3]=new Array('石家庄','张家口','承德','秦皇岛','唐山','廊坊','保定','沧州','衡水','邢台','邯郸');
+			city[4]=new Array('太原','大同','朔州','阳泉','长治','晋城','忻州','吕梁','晋中','临汾','运城');
+			city[5]=new Array('呼和浩特','包头','乌海','赤市峰','通辽','鄂尔多斯','呼伦贝尔','巴彦淖尔','乌兰察布','兴安',"锡林郭勒","阿拉善");
+			city[6]=new Array('沈阳','大连','鞍山','抚顺','本溪','丹东','锦州','营口','阜新','辽阳','盘锦','铁岭','朝阳','葫芦岛');
+			city[7]=new Array('长春','吉林','四平','辽源','通化','白山','松原','白城','延边');
+			city[8]=new Array('哈尔滨','齐齐哈尔','鸡西','鹤岗','双鸭山','大庆','伊春','佳木斯','七台河','牡丹江','黑河','绥化','大兴安岭');
+			city[9]=new Array('上海');
+			city[10]=new Array('南京','无锡','徐州','常州','苏州','南通','连云港','淮安','盐城','扬州',' 镇江','泰州','宿迁');
+			city[11]=new Array('杭州','宁波','温州','嘉兴','湖州','绍兴','金华','衢州','舟山','台州','丽水');
+			city[12]=new Array('合肥','芜湖','蚌埠','淮南','马鞍山','淮北','铜陵','安庆','黄山','滁州','阜阳','宿州','巢湖','六安','亳州','池州','宣城');
+			city[13]=new Array('福州','厦门','莆田','三明','泉州','漳州','南平','龙岩','宁德');
+			city[14]=new Array('南昌','景德镇','萍乡','九江','新余','鹰潭','赣州','吉安','宜春','抚州','上饶');
+			city[15]=new Array('济南','青岛','淄博','枣庄','东营','烟台','潍坊','威海','济宁','泰安','日照','莱芜','临沂','德州','聊城' ,'滨州', '菏泽');
+			city[16]=new Array('郑州','开封','洛阳','平顶山','焦作','鹤壁','新乡','安阳','濮阳','许昌','漯河','三门峡','南阳','商丘','信阳','周口','驻马店');
+			city[17]=new Array( '武汉','黄石','襄樊','十堰','荆州','宜昌','荆门','鄂州','孝感','黄冈','咸宁','随州','恩施');
+			city[18]=new Array('长沙','株洲','湘潭','衡阳','邵阳','岳阳','常德','张家界','益阳','郴州','永州','怀化','娄底','湘西');
+			city[19]=new Array('广州','深圳','珠海','汕头','韶关','佛山','江门','湛江','茂名','肇庆','惠州','梅州','汕尾','河源','阳江','清远','东莞','中山','潮州','揭阳','云浮');
+			city[20]=new Array('南宁','柳州','桂林','梧州','北海','防城港','钦州','贵港','玉林','百色','贺州','河池','来宾','崇左');
+			city[21]=new Array('海口','三亚');
+			city[22]=new Array('重庆市');
+			city[23]=new Array('成都','自贡','攀枝花','泸州','德阳','绵阳','广元','遂宁','内江','乐山','南充','宜宾','广安','达州','眉山','雅安','巴中','资阳','阿坝','凉山');
+			city[24]=new Array( '贵阳','六盘水','遵义','安顺','铜仁','毕节','黔西南','黔东南','黔南');
+			city[25]=new Array('昆明','曲靖','玉溪','保山','昭通','丽江','普洱','临沧','文山','红河','西双版纳','楚雄','大理','德宏','怒江','迪庆');
+			city[26]=new Array('拉萨','昌都','山南','那曲','阿里','林芝');
+			city[27]=new Array('西安','铜川','宝鸡','咸阳','渭南','延安','汉中','榆林','安康','商洛');
+			city[28]=new Array('兰州','嘉峪关','金昌','白银','天水','武威','张掖','平凉','酒泉','庆阳','定西','陇南','临夏','甘南');
+			city[29]=new Array('西宁','海东','海北','黄南','海南','果洛','玉树','海西');
+			city[30]=new Array('银川','石嘴山','吴忠','固原','中卫');
+
+
+            //8. 找出关于城市的下拉列表(根据id=“city”)
+            var selectEleNode = document.getElementById('city');
+            // 9. 清空第二个下拉列表里面的所有option标签;
+            selectEleNode.options.length = 0;
+
+			//6. 创建option的元素节点
+			 var textNod = document.createTextNode("城市");
+			 var optionEleNod = document.createElement("option");
+			 optionEleNod.appendChild(textNod);
+			 selectEleNode.appendChild(optionEleNod);
+
+            // 3. 遍历时省份编号和用户选择的省份编号进行比较
+            for(var i = 1; i < city.length; i++){
+                //此处比较的是省份编号
+                if  (choiceProvince == i){
+                 // 4. 如果相同， 遍历该省份下的所有城市  ；
+                 for(var j=0; j<city[i].length; j++){
+
+                     //5. 创建城市的文本节点;
+                     var textNode = document.createTextNode(city[i][j]);
+					
+					//6. 创建option的元素节点
+					var optionEleNode = document.createElement("option");
+					
+					//7. 将城市的文本节点追加到option元素节点里面去;
+					optionEleNode.appendChild(textNode);
+                     
+                     //9. 将option节点内容追加到select节点里面去;
+                     selectEleNode.appendChild(optionEleNode);
+                 }
+                }
+            }
+        }
+		
+		
+		function test() {
+			var myselect1=document.getElementById("province");
+			var index1=myselect1.selectedIndex;
+			var province = myselect1.options[index1].text;
+			document.getElementById("abc")
+			
+			document.getElementById("abc").setAttribute("src","http://127.0.0.1:5001?p=" + province);
+		}
+	</script>
+
+
+<form>
+        <select id='province'  onchange="changeCity()">
+            <option value="1">北京</option>
+			<option value="2">天津</option>
+			<option value="3">河北</option>
+			<option value="4">山西</option>
+			<option value="5">内蒙古</option>
+			<option value="6">辽宁</option>
+			<option value="7">吉林</option>
+			<option value="8">黑龙江</option>
+			<option value="9">上海</option>
+			<option value="10">江苏</option>
+			<option value="11">浙江</option>
+			<option value="12">安徽</option>
+			<option value="13">福建</option>
+			<option value="14">江西</option>
+			<option value="15">山东</option>
+			<option value="16">河南</option>
+			<option value="17">湖北</option>
+			<option value="18">湖南</option>
+			<option value="19">广东</option>
+			<option value="20">广西</option>
+			<option value="21">海南</option>
+			<option value="22">重庆</option>
+			<option value="23">四川</option>
+			<option value="24">贵州</option>
+			<option value="25">云南</option>
+			<option value="26">西藏</option>
+			<option value="27">陕西</option>
+			<option value="28">甘肃</option>
+			<option value="29">青海</option>
+			<option value="30">宁夏</option>
+			<option value="31">新疆</option>
+
+        </select>
+        <!-- <select id="city">
+            <option value>--市区--</option>
+        </select> -->
+		<input value="提交" type="button" onclick="test()">
+</form>
+<iframe id="abc" src="http://127.0.0.1:5001/" width="850px" height="550px" scrolling=no frameborder=0></iframe>
+</body>
+</html>
