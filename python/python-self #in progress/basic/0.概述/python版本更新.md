@@ -1,3 +1,7 @@
+[python版本](https://www.python.org/doc/versions/)
+
+
+
 ### python3.0
 
 - 2008年12月3日 
@@ -60,6 +64,22 @@
 
 
 
+
+### python2
+
+[Sunsetting Python 2](https://www.python.org/doc/sunset-python-2/)
+
+[*Guido van Rossum*](https://twitter.com/gvanrossum/status/1170949978036084736?s=20)
+
+- 2020.1.1不再支持python2（2019.9.9发布）
+
+| 版本   | 时间   | note         |
+| ------ | ------ | ------------ |
+| 2.7.18 | 2020.4 | 这个版本不算 |
+| 2.7.16 | 2019.3 |              |
+| 2.7.15 | 2018.4 |              |
+| 2.7.14 | 2017.9 |              |
+| 2.7.12 | 2016.6 |              |
 
 
 

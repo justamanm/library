@@ -1,0 +1,9 @@
+[submodule "web/django/project/DjangoBlog"]
+	path = web/django/project/DjangoBlog
+	url = git@github.com:justamanm/DjangoBlog.git
+[submodule "rasa_demo"]
+	path = rasa_demo
+	url = git@github.com:justamanm/rasa_demo.git
+[submodule "ai/nlp/text/chat/rasa_github/rasa_demo"]
+	path = ai/nlp/text/chat/rasa_github/rasa_demo
+	url = git@github.com:justamanm/rasa_demo.git
